@@ -30,19 +30,43 @@
     <script src="pandekageland.js"></script>
 
     <div class="container">
-        <h1 id="buller">♥Buller♥</h1>
+        <h1 id="buller" onclick="skiftFarve()">♥Buller♥</h1>
     </div>
-
     <script>
-        let n = 0
-        setInterval(() => {
-            let text = document.getElementById("buller")
-            text.style.color = "palevioletred"
-            if (n % 2 == 1) {
-                text.style.color = "pink"
-            }
-            n++
-        }, 500);
+
+
+function getPinkShade(randomNum){
+    switch (randomNum) {
+        case 1:
+            return "LightPink";
+        case 2:
+            return "HotPink";
+        case 3:
+            return "DeepPink";
+        case 4:
+            return "PaleVioletRed";
+        case 5:
+            return "Pink";
+        case 6:
+            return "MediumVioletRed";
+        case 7:
+            return "LavenderBlush";
+        case 8:
+            return "Orchid";
+        case 9:
+            return "Fuchsia";
+        case 10:
+            return "Magenta";
+        default:
+            return "Invalid pink shade number. Please enter a number between 1 and 10.";
+    }
+}
+let text = document.getElementById("buller")
+function skiftFarve() {
+    let randomNum = Math.floor(Math.random()*10)+1
+    let farve = getPinkShade(randomNum)
+    text.style.color = farve
+}
     </script>
 </body>
 
